@@ -24,11 +24,11 @@ else:
 
 class NumArray:
     def __init__(self, nums: list[int]):
-        self.nums = [0]
+        self.nums = [0] * (len(nums) + 1)
         _nums = self.nums
 
-        for num in nums:
-            _nums.append(_nums[-1] + num)
+        for index, value in enumerate(nums):
+            _nums[index+1] = value + _nums[index]
 
     def sumRange(self, left: int, right: int) -> int:
         _nums = self.nums
